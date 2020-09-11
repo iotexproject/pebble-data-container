@@ -4,14 +4,15 @@ import (
 	"fmt"
 	"os"
 	"runtime"
+	"time"
 
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
 )
 
 const (
-	DefaultReadTimeOut  = 1
-	DefaultWriteTimeOut = 1
+	DefaultReadTimeOut  = 1 * time.Minute
+	DefaultWriteTimeOut = 1 * time.Minute
 	Host                = "localhost"
 	Port                = 9876
 )
