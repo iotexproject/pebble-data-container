@@ -23,6 +23,7 @@ func ExecuteContract(topic string, data []byte) error {
 	if err != nil {
 		return err
 	}
+
 	// verify the account matches the reward address
 	if account.Address().String() != util.MustFetchNonEmptyParam("VAULT_ADDRESS") {
 		return fmt.Errorf("key and address do not match")
@@ -47,13 +48,12 @@ func executeContract(c iotex.AuthedClient, data []byte) error {
 
 	// call contract to save and exec action
 	ctx := context.Background()
-	// TODO: Determent ABI
+
 	abiJson, err := abi.JSON(strings.NewReader(ABI))
 	if err != nil {
 		return err
 	}
 
-	// TODO: Get some params
 	gasPriceStr := util.MustFetchNonEmptyParam("GAS_PRICE")
 	gasPrice, ok := big.NewInt(0).SetString(gasPriceStr, 10)
 	if !ok {
@@ -65,10 +65,10 @@ func executeContract(c iotex.AuthedClient, data []byte) error {
 		return err
 	}
 
-	// TODO: Determent contract method and params
-	params := []interface{}{}
-	h, err := c.Contract(caddr, abiJson).Execute("XXXMethod", params...).
-		SetGasPrice(gasPrice).SetGasLimit(uint64(gasLimit)).Call(ctx)
+	h, err := c.Contract(caddr, abiJson).Execute("parse", string(data), big.NewInt(int64(1))).
+		SetAmount(big.NewInt(0)).
+		SetGasPrice(gasPrice).
+		SetGasLimit(uint64(gasLimit)).Call(ctx)
 	if err != nil {
 		return err
 	}
@@ -85,8 +85,9 @@ func executeContract(c iotex.AuthedClient, data []byte) error {
 	if err != nil {
 		return err
 	}
+
 	if resp.ReceiptInfo.Receipt.Status != 1 {
-		return fmt.Errorf("distributeRewards filed: %x", h)
+		return fmt.Errorf("Parse Json filed: %x", h)
 	}
 	return nil
 }
