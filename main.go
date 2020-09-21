@@ -13,7 +13,7 @@ import (
 const (
 	DefaultReadTimeOut  = 1 * time.Minute
 	DefaultWriteTimeOut = 1 * time.Minute
-	Host                = "localhost"
+	Host                = "0.0.0.0"
 	Port                = 9876
 )
 

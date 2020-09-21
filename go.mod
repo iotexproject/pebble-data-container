@@ -1,4 +1,4 @@
-module github.com/iotexproject/iotex-blockchain-iot
+module github.com/iotexproject/pebble-data-container
 
 go 1.15
 

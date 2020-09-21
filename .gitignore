@@ -5,3 +5,4 @@ iotex-blockchain-iot
 contract/build
 # keystore file
 UTC--*--*.json
+/bin

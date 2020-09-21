@@ -14,7 +14,7 @@ import (
 	"github.com/iotexproject/iotex-antenna-go/v2/iotex"
 	"github.com/iotexproject/iotex-proto/golang/iotexapi"
 
-	"github.com/iotexproject/iotex-blockchain-iot/util"
+	"github.com/iotexproject/pebble-data-container/util"
 )
 
 func ExecuteContract(topic string, data []byte) error {

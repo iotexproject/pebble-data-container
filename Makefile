@@ -11,12 +11,12 @@ GOCMD=go
 GOBUILD=$(GOCMD) build
 GOINSTALL=$(GOCMD) install
 GOCLEAN=$(GOCMD) clean
-BUILD_TARGET_IOT=iotex-blockchain-iot
+BUILD_TARGET_IOT=pebble-data-container
 
 # Pkgs
 ALL_PKGS := $(shell go list ./... )
 PKGS := $(shell go list ./... | grep -v /test/ )
-ROOT_PKG := "github.com/iotexproject/iotex-layer2"
+ROOT_PKG := "github.com/iotexproject/pebble-data-container"
 
 # Docker parameters
 DOCKERCMD=docker

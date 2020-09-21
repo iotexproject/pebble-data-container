@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/iotexproject/iotex-blockchain-iot/blockchain"
+	"github.com/iotexproject/pebble-data-container/blockchain"
 )
 
 func addDeviceData(ctx *gin.Context) {
