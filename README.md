@@ -1,1 +1,1 @@
-# Put the iot data onto blockchain
+# Demo Smart Contracts for Pebble Data
